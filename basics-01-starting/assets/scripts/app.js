@@ -3,9 +3,9 @@ let currentResult = defaultResult;
 
 function add(a, b){
    const result = a + b;
-   alert(result);
+   return result;
 }
-add(8,9);
+currentResult = add(8,9);
 
 
 currentResult = currentResult + 10;
