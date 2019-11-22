@@ -12,8 +12,16 @@ function add() {
   outputResult(currentResult, description);
 }
 
-function substract(){
-    
+function substract(){ 
+     
+}
+
+function multiply(){
+
+}
+
+function divide(){
+
 }
 
 addBtn.addEventListener('click', add);
