@@ -20,17 +20,26 @@ function add() {
 
 function substract(){ 
     const enteredNumber = getUserNumberInput();
-    const description = `${currentResult} + ${enteredNumber}`;
-    currentResult = currentResult - enteredNumber;
-    outputResult(currentResult, description);
+  const initialResult = currentResult;
+  currentResult = currentResult + enteredNumber;
+  createAndWriteOutput('-', initialResult, enteredNumber);
 }
 
 function multiply(){
-
+    const enteredNumber = getUserNumberInput();
+    const initialResult = currentResult;
+    currentResult = currentResult + enteredNumber;
+    createAndWriteOutput('*', initialResult, enteredNumber);
 }
 
 function divide(){
-
+    const enteredNumber = getUserNumberInput();
+  const initialResult = currentResult;
+  currentResult = currentResult + enteredNumber;
+  createAndWriteOutput('/', initialResult, enteredNumber);
 }
 
 addBtn.addEventListener('click', add);
+addBtn.addEventListener('click', add);
+multiplyBtn.addEventListener('click', substract);
+divideBtn.addEventListener('click', substract);
