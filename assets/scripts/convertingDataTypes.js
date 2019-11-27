@@ -24,7 +24,7 @@ function writeToLog(
       result: currentResult
     };
     logEntries.push(logEntry);
-    console.log(logEntries);
+    console.log(typeof(logEntry));
 }
 
 function add() {
