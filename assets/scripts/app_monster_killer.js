@@ -14,11 +14,12 @@ function endRound(){
     const initialPlayerHealth = currentPlayerHealth;
     const playerDamage = dealPlayerDamage(monsterAttackValue);
     currentPlayerHealth -= playerDamage;
+
     if(currentPlayerHealth <= 0 && hasBonusLife){
         hasBonusLife = false;
         removeBonusLife();
         currentPlayerHealth = initialPlayerHealth;
-        setPlayerHealth();
+        setPlayerHealth(initialPlayerHealth);
         alert("You would be dead but the bonus life saved you")
     }
     if(currentMonsterHealth <= 0 && currentPlayerHealth > 0){
