@@ -129,7 +129,9 @@ function endRound(){
 
 function attackMonster(mode){
     let maxDamage = mode === modeAttack ? attackValue : strongAtttackValue;
-    let logEvent;
+    let logEvent = mode === modeAttack
+    ? logEventPlayerAttack
+    : logEventPlayerStrongAttack;
     // if(mode === modeAttack){
     //     maxDamage = attackValue;
     //     logEvent = logEventPlayerStrongAttack;
