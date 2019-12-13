@@ -260,3 +260,111 @@ attackBtn.addEventListener('click', attackHandler);
 strongAttackBtn.addEventListener('click', strongAttackHandler);
 healBtn.addEventListener('click', healPlayerHandler);
 logBtn.addEventListener('click', printLogHandler);
+
+
+
+    pointeShoes = [
+      {
+        "name": " Alpha",
+        "brand": " Bloch",
+        "feetType": "Egyptian",
+        "level": "Advanced",
+        "strength": "Strong",
+        "toesLength": "Long",
+        "arcProfile": "High",
+        "width": "Narrow",
+        "id": 6
+      },
+      {
+        "name": " Elite",
+        "brand": " Grishko",
+        "feetType": "Giselle",
+        "level": "Intermediate",
+        "strength": "Medium",
+        "toesLength": "Short",
+        "arcProfile": "Low",
+        "width": "Wide",
+        "id": 7
+      },
+      {
+        "name": " Balance",
+        "brand": " Bloch",
+        "feetType": "Giselle",
+        "level": "Beginner",
+        "strength": "Low",
+        "toesLength": "Short",
+        "arcProfile": "Low",
+        "width": "Wide",
+        "id": 8
+      },
+      {
+        "name": " Balance",
+        "brand": " Bloch",
+        "feetType": "Giselle",
+        "level": "Beginner",
+        "strength": "Low",
+        "toesLength": "Short",
+        "arcProfile": "Low",
+        "width": "Wide",
+        "id": 9
+      },
+      {
+        "name": " Balance",
+        "brand": " Bloch",
+        "feetType": "Giselle",
+        "level": "Beginner",
+        "strength": "Low",
+        "toesLength": "Short",
+        "arcProfile": "Low",
+        "width": "Wide",
+        "id": 10
+      },
+      {
+        "name": " Balance",
+        "brand": " Bloch",
+        "feetType": "Giselle",
+        "level": "Beginner",
+        "strength": "Low",
+        "toesLength": "Short",
+        "arcProfile": "Low",
+        "width": "Wide",
+        "id": 11
+      },
+      {
+        "name": " Balance",
+        "brand": " Bloch",
+        "feetType": "Giselle",
+        "level": "Beginner",
+        "strength": "Low",
+        "toesLength": "Short",
+        "arcProfile": "Low",
+        "width": "Wide",
+        "id": 12
+      },
+      {
+        "name": " [object Htmlinputelement]",
+        "brand": " [object Htmlinputelement]",
+        "id": 13
+      },
+      {
+        "name": " Balance",
+        "brand": " Bloch",
+        "feetType": "Giselle",
+        "level": "Beginner",
+        "strength": "Low",
+        "toesLength": "Short",
+        "arcProfile": "Low",
+        "width": "Wide",
+        "id": 14
+      }
+    ]
+  
+    let i = 0;
+for (const pointeShoe of pointeShoes) {
+    console.log(`#${i}`);
+    for(const key in pointeShoe){
+        // console.log(key);
+        console.log(pointeShoe.brand);
+    }
+    i++;
+}
