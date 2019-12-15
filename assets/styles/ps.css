@@ -1,0 +1,46 @@
+ body, * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.heading {
+background-color: hotpink;
+min-height: 100px;
+min-width: 100%;
+padding: 0 90px;
+}
+.title-heading {
+    text-align: center;
+    font-size: 2rem;
+}
+.text-heading {
+    font-size: 1rem;
+}
+
+.nav-bar {
+    background: black;
+    min-width: 100%;
+    min-height: 100px;
+}
+
+.nav-ls {
+    background-color: transparent;
+    display: grid;
+    grid-gap: 5px;
+    grid-template: repeat(1, 1fr) / repeat(auto-fit, minmax(100px, 1fr));
+    list-style: none;
+    display: -ms-flexbox;
+}
+
+.nav-l {
+    min-width: 100px;
+    min-height: 100px;
+    background: black;
+    border: solid 5px hotpink;
+    color: white;
+    padding: 35px 15px 15px 15px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
