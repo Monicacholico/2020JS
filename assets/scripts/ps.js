@@ -111,17 +111,31 @@ let pointeShoes = [
 let i = 0;
 
 function displaying() {
-    let title = "";
-    for (const pointeShoe of pointeShoes) {
+    // let title = "";
+    // for (const pointeShoe of pointeShoes) {
       console.log(`Characteristics of `);
-      for (const characteristic in pointeShoe) {
+      // for (const characteristic in pointeShoe) {
         // console.log(characteristic);
-        console.log(`${characteristic} : ${pointeShoe[characteristic]}`);
-      }
-      i++;
-    }
-}
+        // console.log(`${characteristic} : ${pointeShoe[characteristic]}`);
+      // }
+      // i++;
+      pointeShoes.forEach(function(pointeShoe){
+        let psName = pointeShoe.name;
+        console.log(psName);
+        console.log(pointeShoe);
+        let psTitle = document.getElementById('pointeName');
+        psTitle.innerText = `The Pointe Shoe ${pointeShoe.name}`
+        let node = document.createElement('li');
+        let textNode = document.createTextNode(`${pointeShoe.key} : ${pointeShoe.name} has: `)
+        // console.log(index);
+        // console.log(array);
 
+      })
+    // }
+  }
+  
+  // let node = document.createElement('li');
+  // let textNode = document.createTextNode('')
 // for (const pointeShoe of pointeShoes) {
 //   console.log(`#${i}`);
 //   for (const characteristic in pointeShoe) {

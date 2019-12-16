@@ -45,6 +45,14 @@ padding: 0 90px;
     align-content: center;
     border-radius: 0.345rem;
 }
+.nav-l:hover {
+    background-color: gray;
+}
+
+.nav-l a {
+    text-decoration: none;
+    color: white;
+}
 
 .tab-pane {
     display: none;
