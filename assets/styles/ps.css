@@ -37,10 +37,11 @@ padding: 0 90px;
     min-width: 100px;
     min-height: 100px;
     background: black;
-    border: solid 5px hotpink;
+    border: solid 3px hotpink;
     color: white;
     padding: 35px 15px 15px 15px;
     display: flex;
     justify-content: center;
     align-content: center;
+    border-radius: 0.345rem;
 }

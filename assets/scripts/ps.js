@@ -92,8 +92,9 @@ let pointeShoes = [
 let i = 0;
 
 function displaying() {
+    let title = "";
     for (const pointeShoe of pointeShoes) {
-      console.log(`The characteristics of ${pointeShoe[i]} #${i}  are: `);
+      console.log(`Characteristics of `);
       for (const characteristic in pointeShoe) {
         // console.log(characteristic);
         console.log(`${characteristic} : ${pointeShoe[characteristic]}`);
