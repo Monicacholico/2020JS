@@ -19,7 +19,7 @@ padding: 0 90px;
 }
 
 .nav-bar {
-    background: black;
+    background: hotpink;
     min-width: 100%;
     min-height: 100px;
 }
@@ -28,7 +28,7 @@ padding: 0 90px;
     background-color: transparent;
     display: grid;
     grid-gap: 5px;
-    grid-template: repeat(1, 1fr) / repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     list-style: none;
     display: -ms-flexbox;
 }
@@ -37,11 +37,18 @@ padding: 0 90px;
     min-width: 100px;
     min-height: 100px;
     background: black;
-    border: solid 3px hotpink;
+    border: solid 2px hotpink;
     color: white;
     padding: 35px 15px 15px 15px;
     display: flex;
     justify-content: center;
     align-content: center;
     border-radius: 0.345rem;
+}
+
+.tab-pane {
+    display: none;
+}
+.tab-pane.active {
+    display: block;
 }

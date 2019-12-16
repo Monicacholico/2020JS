@@ -1,3 +1,22 @@
+// TABS
+
+function tabHandler(e){
+  let activeTabs = document.querySelectorAll('.active');
+  activeTabs.forEach(function(tab){
+    tab.className = tab.className.replace('active', '');
+  });
+  e.target.parentElement.className += ' active';
+  let element = document.getElementById(event.target.href.split("#")[1]);
+  element.className += ' active';
+}
+
+
+let ultabs = document.getElementById('nav-tabs');
+ultabs.addEventListener('click', tabHandler, false);
+
+
+
+
 let pointeShoes = [
   {
     name: " Alpha",
