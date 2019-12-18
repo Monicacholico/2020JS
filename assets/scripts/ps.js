@@ -133,7 +133,28 @@ function displaying() {
       })
     // }
   }
-  
+  function rendering(){
+    html = '';
+    pointeShoes.forEach(function(pointeShoe){
+      html = `<div>
+                <h2>The Pointe Shoe ${pointeShoe.name}</h2>
+                <ul>
+                <li>Brand: ${pointeShoe.brand}</li>
+                <li>Feet Type: ${pointeShoe.feetType}</li>
+                <li>Level: ${pointeShoe.level}</li>
+                <li>Strength: ${pointeShoe.strength}</li>
+                <li>Toes Length: ${pointeShoe.toesLength}</li>
+                <li>Arc Profile: ${pointeShoe.arcProfile}</li>
+                <li>Width: ${pointeShoe.width}</li>
+              </div`
+    })
+    let presenter = document.getElementById('render');
+    presenter.appendChild(html);
+  }
+
+  rendering();
+
+
   // let node = document.createElement('li');
   // let textNode = document.createTextNode('')
 // for (const pointeShoe of pointeShoes) {
