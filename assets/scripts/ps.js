@@ -148,11 +148,14 @@ function displaying() {
                 <li>Width: ${pointeShoe.width}</li>
               </div`
     })
-    let presenter = document.getElementById('render');
-    presenter.appendChild(html);
+    return html
+    // presenter.appendChild(html);
   }
+  
 
-  rendering();
+  
+  let presenter = document.getElementById('render');
+  presenter.innerHTML = rendering();
 
 
   // let node = document.createElement('li');
