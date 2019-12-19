@@ -50,8 +50,18 @@ function checkingRdn(){
 }
 
 
+function myFunction(){
 
-
-
+    let sum = 0;
+    for(let i = 0; i < 5; i++){
+        console.log(i);
+        for(let j = 0; j < 2; j++) {
+            console.log(j);
+            sum = sum + i + j;
+            continue;
+        }
+    }
+    console.log(sum);
+}
 
 
