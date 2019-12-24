@@ -35,9 +35,6 @@ try {
     alert("You entered something wrong, default value of 100 was used");
 }
 
-
-
-
 let currentMonsterHealth = chosenMaxLife;
 let currentPlayerHealth = chosenMaxLife;
 let hasBonusLife = true;
@@ -397,3 +394,5 @@ for (const pointeShoe of pointeShoes) {
     }
     i++;
 }
+
+
