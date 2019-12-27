@@ -24,6 +24,9 @@
 
 // greet();
 
+'use strict';
+
 var userName = 'Max';
 var userName = 'Manuel';
+
 console.log(userName);
