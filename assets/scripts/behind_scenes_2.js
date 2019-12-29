@@ -5,12 +5,13 @@ function getName(){
 function greet(){
     const userName = getName();
     console.log('Hello ' + userName);
+    // alert('Nice to meet you! ' + userName);
 }
+// greet();
 
 
-
-// function reply(){
-//     greet();
-//     alert('Nice to meet you!' );
-// }
-// reply();
+function replyGreet(){
+    greet();
+    alert('Nice to meet you!' );
+}
+replyGreet();
