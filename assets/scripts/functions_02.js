@@ -101,12 +101,20 @@ const sumUp = (resultHandler, ...numbers) => {
     resultHandler(sum);
 }
 
-const substractUp = function(...numbers){
+// const substractUp = function(...numbers){
+//     let sum = 0;
+//     for(const num of numbers){ \\don't use that
+//         sum -= num;
+//     }
+//     return sum;
+// }
+
+const substractUp = function(resultHandler, ...arguments) {
     let sum = 0;
-    for(const num of numbers){
+    for (const num of arguments){
         sum -= num;
     }
-    return sum;
+    resultHandler(sum);
 }
 
 const showResult = (result) => {
@@ -115,4 +123,4 @@ const showResult = (result) => {
 
 sumUp(showResult, 1, 5, 'fdsa', 10 -3, 6, 10);
 sumUp(showResult, 1, 5, 10 -3, 6, 10, 25, 88);
-console.log(substractUp(1, 5, 10 -3, 6, 10, 20));
+substractUp(showResult, 5, 10 -3, 6, 10, 20);
