@@ -7,7 +7,7 @@ const section = document.querySelector('section');
 const button = document.querySelector('button');
 
 // section.style.backgroundColor = 'blue';
-section.className = 'red-bg';
+section.className = '';
 
 button.addEventListener('click', () => {
   // if (section.className === 'red-bg visible') {
