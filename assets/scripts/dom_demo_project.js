@@ -5,10 +5,9 @@ const cancelAddMovieButton = document.getElementById('notAddMovie');
 const addMovieButton = cancelAddMovieButton.nextElementSibling;
 const userInputs = modalAddMovie.querySelectorAll('input');
 const entryTextSection = document.getElementById('entry-text');
-
+const deleteMovieModal = document.getElementById('delete-modal')
 
 const movies = [];
-
 
 
 const updateUI = () => {
@@ -19,7 +18,14 @@ const updateUI = () => {
     }
 };
 
-const deleteMovieHandler = (movieId) =>  {
+
+const cancelMovieDeletion = () => {
+    toggleBackDrop();
+    deleteMovieModal.classList.remove('visible');
+}
+
+
+const deleteMovie = movieId => {
     let movieIndex = 0;
     for(const movie of movies) {
         if(movie.id === movieId) {
@@ -31,6 +37,17 @@ const deleteMovieHandler = (movieId) =>  {
     const listRoot = document.getElementById('movie-list');
     listRoot.children[movieIndex].remove();
     // listRoot.removeChild(listRoot.children[movieIndex]);
+}
+const deleteMovieHandler = movieId =>  {
+    deleteMovieModal.classList.add('visible');
+    toggleBackDrop();
+    const cancelDeletionButton = deleteMovieModal.querySelector('.btn--passive');
+    const confirmDeletionButton = deleteMovieModal.querySelector('.btn--danger');
+    
+    cancelDeletionButton.addEventListener('click', cancelMovieDeletion);
+    confirmDeletionButton.addEventListener('click', deleteMovie.bind(null, movieId));
+    // deleteMovie(movieId);
+
 };
 
 const renderNewMovieElement = (id, title, imageUrl, rating) => {
@@ -55,18 +72,24 @@ const toggleBackDrop = () => {
     backDrop.classList.toggle('visible');
 }
 
-const backdropClickHandler = () => {
-    toggleMovieModal();
-} 
+const closeMovieModal = () => {
+    modalAddMovie.classList.remove('visible');
+};
+
+const showMovieModal = () => {
+    modalAddMovie.classList.add('visible');
+    toggleBackDrop();
+};
+
 
 const cancelAddMovieHandler = () => {
-    toggleMovieModal();
+    closeMovieModal();
     clearMovieInputs();
 }
 
 const clearMovieInputs = () => {
     for (const userInput of userInputs) {
-       userInput.value = '';
+        userInput.value = '';
     }
 } 
 
@@ -91,14 +114,19 @@ const addMovieHandler = () => {
     };
     movies.push(newMovie);
     console.log(movies);
-    toggleMovieModal();
+    closeMovieModal();
+    toggleBackDrop();
     clearMovieInputs();
-    updateUI();
     renderNewMovieElement(newMovie.id, newMovie.title, newMovie.image, newMovie.rating);
-
+    updateUI();
+    
 }
 
-openAddMovieButton.addEventListener('click', toggleMovieModal);
+const backdropClickHandler = () => {
+    closeMovieModal();
+    cancelMovieDeletion();
+} 
+openAddMovieButton.addEventListener('click', showMovieModal);
 backDrop.addEventListener('click', backdropClickHandler);
 cancelAddMovieButton.addEventListener('click', cancelAddMovieHandler);
 addMovieButton.addEventListener('click', addMovieHandler);
