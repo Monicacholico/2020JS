@@ -9,6 +9,9 @@ const deleteMovieModal = document.getElementById('delete-modal')
 
 const movies = [];
 
+const toggleBackDrop = () => {
+    backDrop.classList.toggle('visible');
+}
 
 const updateUI = () => {
     if(movies.length === 0){
@@ -37,12 +40,22 @@ const deleteMovie = movieId => {
     const listRoot = document.getElementById('movie-list');
     listRoot.children[movieIndex].remove();
     // listRoot.removeChild(listRoot.children[movieIndex]);
+    cancelMovieDeletion();
+    updateUI();
 }
 const deleteMovieHandler = movieId =>  {
     deleteMovieModal.classList.add('visible');
     toggleBackDrop();
+
     const cancelDeletionButton = deleteMovieModal.querySelector('.btn--passive');
-    const confirmDeletionButton = deleteMovieModal.querySelector('.btn--danger');
+    let confirmDeletionButton = deleteMovieModal.querySelector('.btn--danger');
+    
+    confirmDeletionButton.replaceWith(confirmDeletionButton.cloneNode(true));
+
+    confirmDeletionButton = deleteMovieModal.querySelector('.btn--danger');
+
+
+    cancelDeletionButton.removeEventListener('click', cancelMovieDeletion);
     
     cancelDeletionButton.addEventListener('click', cancelMovieDeletion);
     confirmDeletionButton.addEventListener('click', deleteMovie.bind(null, movieId));
@@ -68,9 +81,7 @@ const renderNewMovieElement = (id, title, imageUrl, rating) => {
 }
 
 
-const toggleBackDrop = () => {
-    backDrop.classList.toggle('visible');
-}
+
 
 const closeMovieModal = () => {
     modalAddMovie.classList.remove('visible');
@@ -83,8 +94,9 @@ const showMovieModal = () => {
 
 
 const cancelAddMovieHandler = () => {
-    closeMovieModal();
     clearMovieInputs();
+    closeMovieModal();
+    toggleBackDrop();
 }
 
 const clearMovieInputs = () => {
@@ -99,12 +111,14 @@ const toggleMovieModal = () => {
 }
 
 const addMovieHandler = () => {
+    const inputPassed = true;
     const titleValue = userInputs[0].value;
     const imageUrl = userInputs[1].value;
     const ratingValue = userInputs[2].value;
     if(titleValue.trim() === '' || imageUrl.trim() === ''
     || ratingValue.trim() === ''|| ratingValue < 1 || ratingValue > 5){
         alert('Please enter valid values!');
+        inputPassed = false;
     }
     const newMovie = {
         id: Math.random().toString(),
@@ -112,19 +126,21 @@ const addMovieHandler = () => {
         image: imageUrl,
         rating: ratingValue
     };
-    movies.push(newMovie);
-    console.log(movies);
-    closeMovieModal();
-    toggleBackDrop();
-    clearMovieInputs();
-    renderNewMovieElement(newMovie.id, newMovie.title, newMovie.image, newMovie.rating);
-    updateUI();
-    
+    if(inputPassed) {
+        movies.push(newMovie);
+        console.log(movies);
+        closeMovieModal();
+        toggleBackDrop();
+        clearMovieInputs();
+        renderNewMovieElement(newMovie.id, newMovie.title, newMovie.image, newMovie.rating);
+        updateUI();
+    }
 }
 
 const backdropClickHandler = () => {
     closeMovieModal();
     cancelMovieDeletion();
+    clearMovieInputs();
 } 
 openAddMovieButton.addEventListener('click', showMovieModal);
 backDrop.addEventListener('click', backdropClickHandler);
