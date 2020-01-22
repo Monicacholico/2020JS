@@ -1,0 +1,115 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    box-sizing: border-box;
+}
+
+html {
+    background: #fff;
+}
+
+header {
+    height: 150px;
+    /*background: url(https://source.unsplash.com/random) 0 -50px repeat-x;*/
+    background: url("background1.jpg") 0 -50px repeat-x;
+    border-top: 10px solid #004b8e;
+    border-bottom: 10px solid #004b8e;
+    animation: move-city 15s infinite linear;
+    z-index: 500;
+}
+
+
+@keyframes move-city {
+    0% {background-position: 0 0}
+    100% {background-position: -533px 0;}
+
+}
+
+#main-image {
+    transform: scaleX(-1);
+    position: absolute;
+    top: -60px;
+    left: -112px;
+    animation: waving 2s infinite alternate;
+}
+
+@keyframes waving {
+    from { top: -112px}
+    to { top: -82px}
+
+}
+
+#trees {
+    float: right;
+    position: relative;
+    right: 50px;
+}
+
+/* grid dense */
+
+.articles-layout {
+    display: grid;
+    grid-auto-flow: dense;
+    grid-gap: 2em;
+    padding:90px 60px;
+    grid-template-columns: repeat (3, 1fr);
+    grid-template-rows: repeat(3, 100px);
+    margin: 0 auto;
+    max-width: 100%;
+}
+.item, .item-featured {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    background: lightpink;
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+.item-featured {
+    grid-column: 2 / span 2;
+}
+
+.item-flex {
+    background-color: lightseagreen;
+    width: 10%;
+    padding: 0 20px;
+    margin: 0 5px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+.articles-flex {
+    display: flex;
+    padding:90px 60px;
+    margin: 0 auto;
+    max-width: 100%;
+}
+.articles-flex:nth-child(9){
+    background-color: mediumaquamarine;
+}
+.menu {
+    margin-inline-start: auto;
+    margin-block-start: auto;
+    background-color: mediumaquamarine;
+}
+
+label {
+    padding-bottom: 15px;
+    
+}

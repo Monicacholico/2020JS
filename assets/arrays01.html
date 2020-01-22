@@ -5,13 +5,85 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Arrays & Iterables</title>
+  <link rel="stylesheet" href="styles/array01.css">
   <script src="scripts/arrays01.js" defer></script>
 </head>
 <body>
-    <ul>
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
+    <ul id="data-list">My List
     </ul>
+
+    <button id="butt" roll="button">Click me</button>
+
+    <header>
+      <h2>GRID DENSE</h2>
+  </header>
+  <section class="articles-layout">
+      <article class="item">
+        <label for="length">Toes Length</label>
+        <select id='length'>
+        <option value="">Choose your length</option>
+        <option value="long">Long</option>
+        <option value="regular">Regular</option>
+        <option value="short">short</option>
+        </select>
+      </article>
+      <article class="item">
+        <label for="strength">Feet Strength</label>
+        <select id='strength' value="regular">
+          <option value="">Choose your strength</option>
+          <option value="strong">Strong</option>
+          <option value="regular">Regular</option>
+          <option value="weak">Weak</option>
+        </select>
+      </article>
+      <article class="item">
+        <label for="level">Dancing Level</label>
+        <select id='level'>
+          <option value="">Choose your level</option>
+          <option value="advanced">Advanced</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="beginner">Beginner</option>
+        </select>
+      </article>
+      <article class="item">
+        <label for="type">Feet Type</label>
+        <select id='type'>
+          <option value="">Choose your type</option>
+          <option value="egiptian">Egiptian</option>
+          <option value="greek">Greek</option>
+          <option value="giselle">Giselle</option>
+        </select>
+      </article>
+      <article class="item">
+        <label for="arc">Feet Arc</label>
+        <select id='arc'>
+          <option value="">Choose your arc profile</option>
+          <option value="high">High</option>
+          <option value="regular">Regular</option>
+          <option value="low">Low</option>
+        </select>
+      </article>
+      <article class="item">
+        <label for="width">Feet Width</label>
+        <select id="width">
+          <option value="">Choose your width</option>
+          <option value="wide">Wide</option>
+          <option value="medium">Medium</option>
+          <option value="narrow">Narrow</option>
+        </select>
+      </article>
+      <article class="item-featured">
+        These are your best fit:
+        <ul id="results"></ul>
+      </article>
+      <article class="item">
+        <button id="calculate">Calculate</button></article>
+      <!-- <article class="item"></article> -->
+  </section>    
+
+
+
+
+
 </body>
 </html>
