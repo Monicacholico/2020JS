@@ -89,4 +89,6 @@ const filteredArray = prices.filter((price, idx) => {
     return price > 6;
 });
 
+const filteredArray = prices.filter(price => price > 6);
+
 console.log(filteredArray);
