@@ -85,10 +85,22 @@ const sortedPrices = prices.sort((a, b) => {
 });
 console.log(sortedPrices.reverse());
 
-const filteredArray = prices.filter((price, idx) => {
-    return price > 6;
-});
+// const filteredArray = prices.filter((price, idx) => {
+//     return price > 6;
+// });
 
 const filteredArray = prices.filter(price => price > 6);
 
 console.log(filteredArray);
+
+// let sum = 0;
+
+// prices.forEach(price => {
+//     sum += price
+// });
+
+// console.log(sum);
+
+
+const sum = prices.reduce((prev, current) => prev + current, 0);
+console.log(sum);
