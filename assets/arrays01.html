@@ -78,14 +78,33 @@
         <button id="calculate">Calculate</button></article>
       <!-- <article class="item"></article> -->
   </section>    
-  <section>
+  <section class="objectPS">
+    <h1 class="ps-title">Here's the Pointe Shoe Object</h1>
     <div id="wrapper"></div>
   </section>
 
-
-
-
   <script src="scripts/psObject.js"></script>
+<script>
 
+const psAlpha = new myPointeShoe ({
+  name: 'Alpha',
+  brand: 'Bloch',
+  level: 'advanced',
+  type: 'egyptian',
+  length: 'long',
+  strength: 'strong',
+  width: 'narrow'
+});
+const psElite = new myPointeShoe({
+  name: 'Elite',
+  brand: 'Grishko',
+  level: ['beginner',' intermediate'],
+  type: 'giselle',
+  length: 'short',
+  strength: 'medium',
+  width:'wide'
+})
+
+</script>
 </body>
 </html>

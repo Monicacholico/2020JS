@@ -113,3 +113,21 @@ label {
     padding-bottom: 15px;
     
 }
+
+.objectPS {
+    padding: 90px 60px;
+    background-color: gray;
+    min-width: 500px;
+    margin: auto;
+}
+
+.ps-list {
+    list-style: none;
+    padding: 15px;
+}
+.ps-title {
+    font-size: 2rem;
+    padding: 30px;
+    color: hsl(10, 50%, 40%);
+    filter: drop-shadow(1);
+}
