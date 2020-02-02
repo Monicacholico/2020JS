@@ -102,30 +102,36 @@ console.log(filteredArray);
 // console.log(sum);
 
 
-const sum = prices.reduce((prev, current) => prev + current, 0);
-console.log(sum);
+// const sum = prices.reduce((prev, current) => prev + current, 0);
+// console.log(sum);
 
-const data = 'new york;10.99;2000';
+// const data = 'new york;10.99;2000';
 
-const transformData = data.split(';');
-transformData[1] = +transformData[1]; // or transformData[1] * 1;
-console.log(transformData);
+// const transformData = data.split(';');
+// transformData[1] = +transformData[1]; // or transformData[1] * 1;
+// console.log(transformData);
 
-const nameFragments = ['Max', 'Schwarz'];
-const name = nameFragments.join(' ');
-console.log(name);
+// const nameFragments = ['Max', 'Schwarz'];
+// const name = nameFragments.join(' ');
+// console.log(name);
 
-const copyOfnameFragments = [...nameFragments];
-nameFragments.push('Mr');
-console.log(nameFragments, copyOfnameFragments);
+// const copyOfnameFragments = [...nameFragments];
+// nameFragments.push('Mr');
+// console.log(nameFragments, copyOfnameFragments);
 
- console.log("This " + Math.min(1, 5, -3));
- console.log(Math.min(...prices));
+//  console.log("This " + Math.min(1, 5, -3));
+//  console.log(Math.min(...prices));
 
- const firstBeatles = [{name: 'John', age: 30}, {name: 'Paul', age: 29}, {name: 'Ringo', age: 34}];
- secondBeatles = [...firstBeatles];
+//  const firstBeatles = [{name: 'John', age: 30}, {name: 'Paul', age: 29}, {name: 'Ringo', age: 34}];
+//  secondBeatles = [...firstBeatles];
 
- firstBeatles.push({name: 'George', age: 32});
- firstBeatles[0].age = 50; 
+//  firstBeatles.push({name: 'George', age: 32});
+//  firstBeatles[0].age = 50; 
 
- console.log(firstBeatles, secondBeatles);
+//  console.log(firstBeatles, secondBeatles);
+
+const nameData = ['Max', 'Shwarz', 'Mr', 30];
+// const firstName = nameData[0];
+// const lastName = nameData[1];
+const [firstName, lastName, ...otherInformation] = nameData;
+console.log(firstName, lastName, otherInformation);
