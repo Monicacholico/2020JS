@@ -99,4 +99,11 @@ function findMax(...arrayNumbers){
     return [curMax,curMin];
 }
 
-console.log(findMax(...arrayNumbers))
+const [min, max]= findMax(...arrayNumbers);
+console.log(min, max);
+
+const userIds = new Set();
+userIds.add(10);
+userIds.add(-5);
+
+console.log(userIds);
