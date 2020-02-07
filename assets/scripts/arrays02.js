@@ -135,3 +135,5 @@ const nameData = ['Max', 'Shwarz', 'Mr', 30];
 // const lastName = nameData[1];
 const [firstName, lastName, ...otherInformation] = nameData;
 console.log(firstName, lastName, otherInformation);
+
+
