@@ -24,7 +24,7 @@ person.isAdmin = true;
 
 const keyName = 'name';
 
-console.log(person[keyName];)
+console.log(person[keyName]);
 // console.log(person['name']);
 console.log(person[1.5]);
 console.log(person);

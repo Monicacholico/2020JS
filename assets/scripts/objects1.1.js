@@ -1,6 +1,9 @@
 const addMovieBtn = document.getElementById('add-movie-btn');
 const searchBtn = document.getElementById('search-btn');
 
+const movies = [];
+
+
 const addMovieHandler = () => {
     const title= document.getElementById('title').value;
     const extraName = document.getElementById('extra-name').value;
@@ -9,14 +12,19 @@ const addMovieHandler = () => {
     if (
         title.trim() === '' ||
         extraName.trim() === '' ||
-        exttraValue.trime() === '' 
+        extraValue.trim() === '' 
         ){
             return;
         }
         const newMovie = {
             info: {
                 title,
-                extraName
-            }
-        }
-}
+                [extraName]: extraValue
+            },
+            id: Math.random()
+        };
+    movies.push(newMovie);
+    console.log(newMovie);
+};
+
+addMovieBtn.addEventListener('click', addMovieHandler);
