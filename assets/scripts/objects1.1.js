@@ -60,3 +60,22 @@ const searchMovieHandler = () => {
 
 addMovieBtn.addEventListener('click', addMovieHandler);
 searchBtn.addEventListener('click', searchMovieHandler);
+
+
+
+
+const person = {name: 'Max', hobbies: ['Sports', 'Cooking']};
+
+const anotherPerson = person;
+person.age = 30;
+
+const person3 = {...person, age: 29}
+
+
+const person = {name: 'Monica'};
+
+const person2 = Object.assign({}, person);
+
+
+console.log(person2);
+person.name = 'Monica2';
