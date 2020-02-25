@@ -21,12 +21,12 @@ const renderMovies = (filter = '') => {
         // if(!('info' in movie)){
         
         // } Validation in case you wanna throw errors
-        // movieEl.textContent = movie.info.title;
         const {info, ...otherProps } = movie;
         console.log(otherProps);
         // const { title: movieTitle} = info;
-        // const {getFormattedTitle} = movie;
-        let text = movie.getFormattedTitle + ' - ';
+        const {getFormattedTitle} = movie;
+        getFormattedTitle = getFormattedTitle.bind(movie);
+        let text = getFormattedTitle.call(movie) + ' - ';
         // let text = movie.info.title + ' - ';
         for(const key in info){ 
             if(key !== 'title') {
@@ -56,7 +56,7 @@ const addMovieHandler = () => {
                 [extraName]: extraValue
             },
             id: Math.random(),
-            getFormattedTitle: function(){
+            getFormattedTitle() {
                 return this.info.title.toUpperCase();
             }
         };
