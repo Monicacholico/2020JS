@@ -57,6 +57,7 @@ const addMovieHandler = () => {
             },
             id: Math.random(),
             getFormattedTitle() {
+                console.log(this);
                 return this.info.title.toUpperCase();
             }
         };
@@ -65,6 +66,7 @@ const addMovieHandler = () => {
 };
 
 const searchMovieHandler = () => {
+    console.log(this);
     const filterTerm = document.getElementById('filter-title').value;
     renderMovies(filterTerm);
 }
@@ -90,3 +92,20 @@ const person2 = Object.assign({}, person);
 
 console.log(person2);
 person.name = 'Monica2';
+
+
+const members = {teamName: 'Blue Rockets',
+people: ['Max','Manuel'], getTeamMembers(){
+    this.people.forEach(p => {
+        console.log(p + ' - ' + this.teamName);
+    })
+}}
+
+members.getTeamMembers();
+
+const members = {teamName: 'Blue Rockets',
+people: ['Max','Manuel'], getTeamMembers(){
+    this.people.forEach(function(p) {
+        console.log(p + ' - ' + this.teamName);
+    })
+}}
