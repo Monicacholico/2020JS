@@ -24,12 +24,12 @@ const renderMovies = (filter = '') => {
         const {info, ...otherProps } = movie;
         console.log(otherProps);
         // const { title: movieTitle} = info;
-        const {getFormattedTitle} = movie;
+        let {getFormattedTitle} = movie;
         getFormattedTitle = getFormattedTitle.bind(movie);
         let text = getFormattedTitle.call(movie) + ' - ';
         // let text = movie.info.title + ' - ';
         for(const key in info){ 
-            if(key !== 'title') {
+            if(key !== 'title' && key !== '_title') {
                 text = text + `${key}: ${info[key]}`;
             }
         }
@@ -44,7 +44,7 @@ const addMovieHandler = () => {
     const extraValue = document.getElementById('extra-value').value;
 
     if (
-        title.trim() === '' ||
+        
         extraName.trim() === '' ||
         extraValue.trim() === '' 
         ){
@@ -52,15 +52,29 @@ const addMovieHandler = () => {
         }
         const newMovie = {
             info: {
-                title,
+                set title(val) {
+                    if (val.trim() === ''){
+                        this._title = 'DEFAULT';
+                        return;
+                    }
+                    this._title = val;
+                },
+                get title() {
+                    return this._title;
+                },
                 [extraName]: extraValue
             },
-            id: Math.random(),
+            id: Math.random().toString(),
             getFormattedTitle() {
+                console.log('hi');
                 console.log(this);
                 return this.info.title.toUpperCase();
             }
         };
+
+        newMovie.info.title = title;
+        console.log(newMovie.info.title);
+
     movies.push(newMovie);
     renderMovies();
 };
@@ -77,35 +91,35 @@ searchBtn.addEventListener('click', searchMovieHandler);
 
 
 
-const person = {name: 'Max', hobbies: ['Sports', 'Cooking']};
+// const person = {name: 'Max', hobbies: ['Sports', 'Cooking']};
 
-const anotherPerson = person;
-person.age = 30;
+// const anotherPerson = person;
+// person.age = 30;
 
-const person3 = {...person, age: 29}
-
-
-const person = {name: 'Monica'};
-
-const person2 = Object.assign({}, person);
+// const person3 = {...person, age: 29}
 
 
-console.log(person2);
-person.name = 'Monica2';
+// const person = {name: 'Monica'};
+
+// const person2 = Object.assign({}, person);
 
 
-const members = {teamName: 'Blue Rockets',
-people: ['Max','Manuel'], getTeamMembers(){
-    this.people.forEach(p => {
-        console.log(p + ' - ' + this.teamName);
-    })
-}}
+// console.log(person2);
+// person.name = 'Monica2';
 
-members.getTeamMembers();
 
-const members = {teamName: 'Blue Rockets',
-people: ['Max','Manuel'], getTeamMembers(){
-    this.people.forEach(function(p) {
-        console.log(p + ' - ' + this.teamName);
-    })
-}}
+// const members = {teamName: 'Blue Rockets',
+// people: ['Max','Manuel'], getTeamMembers(){
+//     this.people.forEach(p => {
+//         console.log(p + ' - ' + this.teamName);
+//     })
+// }}
+
+// members.getTeamMembers();
+
+// const members = {teamName: 'Blue Rockets',
+// people: ['Max','Manuel'], getTeamMembers(){
+//     this.people.forEach(function(p) {
+//         console.log(p + ' - ' + this.teamName);
+//     })
+// }}
