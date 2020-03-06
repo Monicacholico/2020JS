@@ -16,7 +16,7 @@ class Product {
     products: [
       new Product(
         'A Pillow',
-        'https://www.maxpixel.net/static/photo/2x/Soft-Pillow-Green-Decoration-Deco-Snuggle-1241878.jpg',
+        'https://maxpixel.net/static/photo/2x/Soft-Pillow-Green-Decoration-Deco-Snuggle-1241878.jpg',
         'A soft pillow!',
         19.99
       ),
