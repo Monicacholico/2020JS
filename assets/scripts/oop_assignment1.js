@@ -60,14 +60,21 @@ class PracticalCourse extends Course {
 
 const dutchCourse = new PracticalCourse('Dutch', 7, 28, 10)
 
+console.log(dutchCourse);
+dutchCourse.printSummary();
+
+
 class TheoreticalCourse extends Course {
-    constructor(){
-        super();
+    publish(){
+        console.log("I'm printing something")
     }
 }
 
-console.log(dutchCourse);
-dutchCourse.printSummary();
+const historicCourse = new TheoreticalCourse('History', 5, 28, 15);
+
+console.log(historicCourse);
+historicCourse.printSummary();
+historicCourse.publish();
 
 
 function greetin(){
