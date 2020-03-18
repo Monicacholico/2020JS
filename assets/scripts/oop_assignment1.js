@@ -1,5 +1,16 @@
 class Course {
 
+    get price(){
+        return '$' + this._price;
+    }
+
+    set price(value){
+        if (value < 0) {
+            throw 'Invalid value';
+        }
+        this._price = value;
+    }
+
     constructor(title, length, price){
         this.title = title;
         this.length = length;
