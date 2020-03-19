@@ -1,25 +1,25 @@
 class Course {
-
+    #_price;
     get price(){
-        return '$' + this._price;
+        return '$' + this.#_price;
     }
 
     set price(value){
         if (value < 0) {
             throw 'Invalid value';
         }
-        this._price = value;
+        this.#_price = value;
     }
 
-    constructor(title, length, price){
-        this.title = title;
-        this.length = length;
-        this.price = price;
-        this.calculateHours();
+    constructor(courseTitle, courseLength, coursePrice){
+        this.title = courseTitle;
+        this.length = courseLength;
+        this.price = coursePrice;
+        // this.calculateHours();
     }
 
     calculateHours() {
-        return this.length/this.price;
+        return this.length / this.#_price;
     }
 
     printSummary(){
@@ -72,6 +72,7 @@ class PracticalCourse extends Course {
 const dutchCourse = new PracticalCourse('Dutch', 7, 28, 10)
 
 console.log(dutchCourse);
+dutchCourse.#price = 20;
 dutchCourse.printSummary();
 
 
