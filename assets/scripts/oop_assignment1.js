@@ -72,7 +72,6 @@ class PracticalCourse extends Course {
 const dutchCourse = new PracticalCourse('Dutch', 7, 28, 10)
 
 console.log(dutchCourse);
-dutchCourse.#price = 20;
 dutchCourse.printSummary();
 
 
@@ -87,6 +86,11 @@ const historicCourse = new TheoreticalCourse('History', 5, 28, 15);
 console.log(historicCourse);
 historicCourse.printSummary();
 historicCourse.publish();
+
+
+typeof p 
+const btn = document.querySelector('button');
+
 
 
 function greetin(){
