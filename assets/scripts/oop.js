@@ -182,5 +182,18 @@ class Product {
   }
   App.init();
 
-
+  class Person{
+    constructor(){
+      this.name = name;
+    }
+  }
   
+  const p = new Person({name: 'Max'});
+  console.log(p instanceof Person);
+  
+
+  const btn = document.querySelector('button');
+  console.dir(btn);
+  console.log(btn instanceof HTMLButtonElement);
+  console.log(btn instanceof HTMLElement);
+
