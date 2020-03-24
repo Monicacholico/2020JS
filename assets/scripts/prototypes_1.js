@@ -71,5 +71,47 @@ console.log(newP.__proto__);
 // const per1 = new Person();
 // console.log(per.__proto__ === per1.__proto__);
 
-const button = document.getElementById('btn');
-button.addEventListener('click', newP.greet.bind(newP));
+// const button = document.getElementById('btn');
+// button.addEventListener('click', newP.greet.bind(newP));
+
+const course = { // new Object();
+    title: 'Javascript New guide',
+    rating: 5
+}; 
+
+// console.log(Object.getPrototypeOf(course));
+Object.setPrototypeOf(course, {
+    ...Object.getPrototypeOf(course),
+    printRating: function(){
+        console.log(`${this.rating}/5`)
+    }
+});
+
+const student = Object.create({
+    printProgress: function(){
+        console.log(this.progress);
+    }
+}, {
+    name: {
+        configurable: true,
+        enumerable: true,
+        value: 'Max',
+        writable: true
+    }
+});
+
+// student.name = "max";
+
+Object.defineProperty(student, 'progress', {
+    configurable: true,
+    enumerable: true,
+    value:  0.8,
+    writable: false
+})
+
+student.printProgress();
+
+course.printRating();
+
+// console.log(course._proto_);
+// course.printRating();
