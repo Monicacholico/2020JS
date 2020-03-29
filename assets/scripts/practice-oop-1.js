@@ -7,7 +7,6 @@ class Activity {
     }
     build(){
         const active = document.getElementById('active-projects');
-        let html = '';
         const ul = active.querySelector('ul');
         console.log(ul);
         const li = document.createElement('li');
@@ -20,23 +19,34 @@ class Activity {
         `;
         console.log(ul);
         console.log(li);
-        li.append(html);
         ul.appendChild(li);
-        // li.appendChild(html);
-        // active.appendChild(ul);
-        console.log(html)
     }
 }
 
-// build();
+class ActivityDone extends Activity {
+  
+    constructor(){
+        super(activity1);
+    }
+    moveToFinish(){
+        console.log(activity1);
+    }
+   
+}
+
+const activity1Done = new ActivityDone();
+console.log(activity1Done);
 
 
 const activity1 = new Activity('Shopping', 'Buy goat cheese');
-
-// activity1.build();
+const activity2 = new Activity('Working Out', 'Do Maria Khorova YouTube\'s class' );
 console.log(activity1);
 
-// const active = document.getElementById('active-projects');
-
+const activityCard = document.getElementById('active-projects');
+const firstBtn = activityCard.querySelector('button');
+const finishBtn = firstBtn.nextElementSibling;
+console.log(finishBtn);
+finishBtn.addEventListener('click', function(){
+    
+})
 const finished = document.getElementById('finished-projects');
-const finishedHtml = ``
