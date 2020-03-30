@@ -4,6 +4,7 @@ class Activity {
         this.title = title;
         this.text = text;
         this.build();
+        this.moveToFinish();
     }
     build(){
         const active = document.getElementById('active-projects');
@@ -21,15 +22,26 @@ class Activity {
         console.log(li);
         ul.appendChild(li);
     }
+    moveToFinish(activity){
+        const activityCard = document.getElementById('active-projects');
+        const firstBtn = activityCard.querySelector('button');
+        const finishBtn = firstBtn.nextElementSibling;
+        finishBtn.addEventListener('click', function(){
+            console.log(this.activity);
+            console.log(this.activity.title);
+            console.log(this.activity.text);
+        })
+    }
 }
 
 class ActivityDone extends Activity {
   
     constructor(){
-        super(activity1);
+        super('Miritas', 'Do pathways for Miritas');
+        this.moveToFinish();
     }
     moveToFinish(){
-        console.log(activity1);
+        console.log(this.title);
     }
    
 }
