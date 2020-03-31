@@ -22,11 +22,15 @@ class Activity {
         console.log(li);
         ul.appendChild(li);
     }
-    moveToFinish(activity){
+    moveToFinish(){
         const activityCard = document.getElementById('active-projects');
         const firstBtn = activityCard.querySelector('button');
         const finishBtn = firstBtn.nextElementSibling;
+        const finished = document.getElementById('finished-projects');
+        const activeCard = activityCard.querySelector('ul');
         finishBtn.addEventListener('click', function(){
+        console.log(activeCard);
+            console.log('I\'m working');
             console.log(this.activity);
             console.log(this.activity.title);
             console.log(this.activity.text);
@@ -38,7 +42,7 @@ class ActivityDone extends Activity {
   
     constructor(){
         super('Miritas', 'Do pathways for Miritas');
-        this.moveToFinish();
+        // this.moveToFinish();
     }
     moveToFinish(){
         console.log(this.title);
