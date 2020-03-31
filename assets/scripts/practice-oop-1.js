@@ -27,13 +27,22 @@ class Activity {
         const firstBtn = activityCard.querySelector('button');
         const finishBtn = firstBtn.nextElementSibling;
         const finished = document.getElementById('finished-projects');
-        const activeCard = activityCard.querySelector('ul');
+        const finishedCards = finished.querySelector('ul');
+        const cardsHolder = activityCard.querySelector('ul');
+        const activeCard = Array.from(cardsHolder.querySelectorAll('li'));
         finishBtn.addEventListener('click', function(){
-        console.log(activeCard);
+            activeCard.forEach(function(){
+                cardsHolder.insertBefore(finishedCards, cardsHolder.activeCard);
+            })
+            // cardsHolder.insertBefore(finishedCards.innerHTML, cardsHolder);
+            // console.log(activeCard[1]);
             console.log('I\'m working');
-            console.log(this.activity);
-            console.log(this.activity.title);
-            console.log(this.activity.text);
+            console.log(activeCard);
+            // console.log(`this is the list for Finished: ${finishedCards.innerHTML}`);
+            // console.log(`this is the list for Active: ${cardsHolder}`);
+            // console.log(this.activeCard);
+            // console.log(this.activity.title);
+            // console.log(this.activity.text);
         })
     }
 }
