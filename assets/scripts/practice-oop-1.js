@@ -29,21 +29,22 @@ class Activity {
         const finished = document.getElementById('finished-projects');
         const finishedCards = finished.querySelector('ul');
         const cardsHolder = activityCard.querySelector('ul');
-        const activeCard = Array.from(cardsHolder.querySelectorAll('li'));
-        finishBtn.addEventListener('click', function(){
-            activeCard.forEach(function(){
-                cardsHolder.insertBefore(finishedCards, cardsHolder.activeCard);
+        const activeCard = cardsHolder.querySelectorAll('li');
+        activeCard.forEach(function(){
+            finishBtn.addEventListener('click', function(){
+                finishedCards.insertBefore(cardsHolder, finishedCards.activeCard);
+                console.log('I\'m working');
             })
+        })
             // cardsHolder.insertBefore(finishedCards.innerHTML, cardsHolder);
             // console.log(activeCard[1]);
-            console.log('I\'m working');
             console.log(activeCard);
             // console.log(`this is the list for Finished: ${finishedCards.innerHTML}`);
             // console.log(`this is the list for Active: ${cardsHolder}`);
             // console.log(this.activeCard);
             // console.log(this.activity.title);
             // console.log(this.activity.text);
-        })
+        // })
     }
 }
 
