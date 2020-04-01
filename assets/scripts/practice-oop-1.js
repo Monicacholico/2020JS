@@ -21,6 +21,11 @@ class Activity {
         console.log(ul);
         console.log(li);
         ul.appendChild(li);
+        // const doneBtn = li.querySelector('button').nextElementSibling;
+        // console.log(ul);
+        // console.log(doneBtn);
+        
+        
     }
     moveToFinish(){
         const activityCard = document.getElementById('active-projects');
