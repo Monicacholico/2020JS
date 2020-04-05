@@ -1,9 +1,16 @@
+class DOMHelper {
+    static moveElement(elementId, newDestinationSelector) {
+        const element = document.getElementById(elementId);
+        const destinationElement = document.querySelector(newDestinationSelector);
+        destinationElement.append(element);
+    }
+}
 class Tooltip {}
 
 class ProjectItem {
     constructor(id, updateProjectListsFunction){
         this.id = id;
-        this.updateProjectListsFunction = updateProjectListsFunction;
+        this.updateProjectListsHandler = updateProjectListsFunction;
         this.connectMoreInfoButton();
         this.connectSwitchButton();
     }
@@ -19,13 +26,6 @@ class ProjectItem {
     }
 
 }
-
-// const listOf = new ProjectItem({
-//     id: 'one'
-// });
-
-// listOf.connectSwitchButton();
-
 
 class ProjectList {
     projects = [];
@@ -43,15 +43,17 @@ class ProjectList {
         this.switchHandler = switchHandlerFunction;
     }
 
-    addProject() {
-        console.log(this);
+    addProject(project) {
+        console.log(project);
+        this.projects.push(project)
+        DOMHelper.moveElement(project.id, `#${this.type}-projects ul`)
     }
 
     switchProject(projectId) {
         // const projectIndex = this.projects.findIndex(p => p.id === projectId)
         // this.projects.splice(projectIndex, 1);
         this.switchHandler(this.projects.find(p => p.id === projectId));
-        this.projects = this.projects(filter(p => p.id !== projectId));
+        this.projects = this.projects.filter(p => p.id !== projectId);
     }
 }
 
