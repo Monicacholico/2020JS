@@ -10,7 +10,14 @@ class DOMHelper {
         destinationElement.append(element);
     }
 }
-class Tooltip {}
+class Tooltip {
+    show(){
+        const tooltipElement = document.createElement('div');
+        tooltipElement.className = 'card';
+        document.body.append(tooltipElement);
+        console.log('The tooltip...')
+    }
+}
 
 class ProjectItem {
     constructor(id, updateProjectListsFunction, type){
@@ -20,9 +27,17 @@ class ProjectItem {
         this.connectSwitchButton(type);
     }
 
-    connectMoreInfoButton(){
-
+    showMoreInfoHandler(){
+        const tooltip = new Tooltip();
+        tooltip.show();
     }
+
+    connectMoreInfoButton(){
+        const projectItemElement = document.getElementById(this.id);
+        const moreInfotBtn = projectItemElement.querySelector('button:first-of-type');
+        moreInfotBtn.addEventListener('click', this.showMoreInfoHandler);
+    }
+
     connectSwitchButton(type) {
         const projectItemElement = document.getElementById(this.id);
         let switchBtn = projectItemElement.querySelector('button:last-of-type');
