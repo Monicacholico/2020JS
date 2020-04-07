@@ -11,15 +11,32 @@ class DOMHelper {
     }
 }
 class Tooltip {
+    constructor(closeNotifierFunction){
+        this.closeNotifier = closeNotifierFunction;
+    }
+    closeTooltip = () => {
+        this.detach();
+        this.closeNotifier();
+    }
+
+    detach() {
+        this.element.remove();
+        // this.element.parentElement.removeChild(this.element); for old browsers
+    }
+
     show(){
         const tooltipElement = document.createElement('div');
         tooltipElement.className = 'card';
+        tooltipElement.textContent = 'DUMMY!'
+        tooltipElement.addEventListener('click', this.closeTooltip);
+        this.element = tooltipElement;
         document.body.append(tooltipElement);
-        console.log('The tooltip...')
     }
 }
 
 class ProjectItem {
+    hasActiveTooltip = false;
+
     constructor(id, updateProjectListsFunction, type){
         this.id = id;
         this.updateProjectListsHandler = updateProjectListsFunction;
@@ -28,8 +45,14 @@ class ProjectItem {
     }
 
     showMoreInfoHandler(){
-        const tooltip = new Tooltip();
+        if(this.hasActiveTooltip){
+            return;
+        }
+        const tooltip = new Tooltip(() => {
+            this.hasActiveTooltip = false;
+        });
         tooltip.show();
+        this.hasActiveTooltip = true;
     }
 
     connectMoreInfoButton(){
