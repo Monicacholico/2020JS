@@ -3,9 +3,8 @@
 
 // console.log(h2);
 
-// const myDiv = document.getElementsByClassName('zero');
-// console.log(myDiv);
+const myDiv = document.getElementById('main-box');
+console.log(myDiv);
 
-var theDiv = document.getElementById('main-box');
-console.log(theDiv);
-console.log(document.getElementById('main-box'));
+// const thepi = document.querySelectorAll('p');
+// console.log(thepi);
