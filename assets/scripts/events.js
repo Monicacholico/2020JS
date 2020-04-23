@@ -5,7 +5,7 @@ const buttons = document.querySelectorAll('button');
 // };
 
 const buttonClickHandler = (e) => {
-e.target.disabled = true
+// e.target.disabled = true
 console.log(e.target);
 } 
 
@@ -18,7 +18,11 @@ const anotherButtonClicked = () => {
 
 
 buttons.forEach(btn => {
-    btn.addEventListener('click', buttonClickHandler);
+    btn.addEventListener('mouseenter', buttonClickHandler);
+})
+
+window.addEventListener('scroll', event => {
+    console.log(event);
 })
 
 // setTimeout(() => {
@@ -32,3 +36,18 @@ const boundFn = buttonClickHandler.bind(this);
 // setTimeout(() => {
 //     button.removeEventListener('click', boundFn);
 // }, 2000);
+
+let curElementNumber = 0;
+ 
+function scrollHandler() {
+    const distanceToBottom = document.body.getBoundingClientRect().bottom;
+ 
+    if (distanceToBottom < document.documentElement.clientHeight + 150) {
+        const newDataElement = document.createElement('div');
+        curElementNumber++;
+        newDataElement.innerHTML = `<p>Element ${curElementNumber}</p>`;
+        document.body.append(newDataElement);
+    }
+}
+ 
+window.addEventListener('scroll', scrollHandler);
