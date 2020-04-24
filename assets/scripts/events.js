@@ -1,4 +1,4 @@
-const buttons = document.querySelectorAll('button');
+const button = document.querySelector('button');
 
 // button.onclick = function() {
    
@@ -53,7 +53,22 @@ const boundFn = buttonClickHandler.bind(this);
 // window.addEventListener('scroll', scrollHandler);
 
 const form = document.querySelector('form');
-form.addEventListener('submit', e => {
+form.addEventListener('submit', event => {
     event.preventDefault();
-    console.log(e);
+    console.log(event);
+})
+
+const div = document.querySelector('div');
+
+div.addEventListener('click', event => {
+    console.log('clicked div');
+    console.log(event);
+
+}, true);
+
+button.addEventListener('click', event => {
+    event.stopPropagation(); // to stop events listeners en ancestors elements
+    // event.stopImmediatePropagation(); to stop multiple event listeners on same element
+    console.log('click button');
+    console.log(event);
 })
