@@ -1,3 +1,5 @@
+import { win32 } from "path";
+
 const button = document.querySelector('button');
 
 // button.onclick = function() {
@@ -46,10 +48,11 @@ div.addEventListener('mouseenter', event => {
   console.log(event);
 });
 
-button.addEventListener('click', event => {
+button.addEventListener('click', function(event) {
   event.stopPropagation();
   console.log('CLICKED BUTTON');
   console.log(event);
+  console.log(this);
 });
 
 const listItems = document.querySelectorAll('li');
@@ -61,11 +64,18 @@ const list = document.querySelector('ul');
 //   });
 // });
 
-list.addEventListener('click', event => {
+list.addEventListener('click', function(event) {
   // console.log(event.currentTarget);
   // event.target.classList.toggle('highlight');
   event.target.closest('li').classList.toggle('highlight');
   form.submit();
+  console.log(this);
 });
 
 
+// youtube.com/watch?v=RBB2N342tr0
+// add classes on click then remove them with onfocus event
+
+
+// w3.org/TR/wai-aria-practices/examples/tabs-1/tabs.html
+//  howto_js_active_element.asp
