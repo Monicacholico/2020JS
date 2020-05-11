@@ -82,6 +82,7 @@ class ProjectItem {
         this.updateProjectListsHandler = updateProjectListsFunction;
         this.connectMoreInfoButton();
         this.connectSwitchButton(type);
+        this.connectDrag();
     }
 
     showMoreInfoHandler(){
@@ -96,6 +97,13 @@ class ProjectItem {
         this.id);
         tooltip.show();
         this.hasActiveTooltip = true;
+    }
+
+    connectDrag(){
+        document.getElementById(this.id).addEventListener('dragstart', event => {
+            event.dataTransfer.setData('text/plain', this.id);
+            event.dataTransfer.effectAllowed = 'move';
+        });
     }
 
     connectMoreInfoButton(){
@@ -130,6 +138,26 @@ class ProjectList {
             this.projects.push(new ProjectItem(prjItem.id, this.switchProject.bind(this), this.type))
         }
         console.log(this.projects)
+        this.connectDroppable();
+    }
+
+    connectDroppable(){
+        const list = document.querySelector(`#${this.type}-projects ul`);
+        list.addEventListener('dragenter', event => {
+            if(event.dataTransfer.types[0] === 'text/plain'){
+                list.parentElement.classList.add('droppable');
+                event.preventDefault();
+            }
+        })
+        list.addEventListener('dragover', event => {
+            if(event.dataTransfer.types[0] === 'text/plain'){
+            event.preventDefault();
+            }
+        });
+        list.addEventListener('dragleave', event => {
+            if(event.relatedTarget.closest(`#${this.type}-projects ul`) !== list)
+            list.parentElement.classList.remove('droppable');
+        });
     }
 
     setSwitchHandlerFunction(switchHandlerFunction){
