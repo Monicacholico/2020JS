@@ -48,3 +48,14 @@ multiplier = 1.2;
 
 console.log(calculateVatAmount(100));
 console.log(calculateVatAmount(200));
+
+let userName = 'Max';
+
+function greetUser() {
+    let name = userName;
+    console.log('Hi ' + userName );
+}
+
+userName = 'Manuel';
+
+greetUser();
