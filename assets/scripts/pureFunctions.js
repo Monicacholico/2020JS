@@ -52,10 +52,29 @@ console.log(calculateVatAmount(200));
 let userName = 'Max';
 
 function greetUser() {
-    let name = userName;
-    console.log('Hi ' + userName );
+    let name = 'Anna';
+    console.log('Hi ' + name);
 }
+let name = 'Maximilian';
 
 userName = 'Manuel';
 
 greetUser();
+
+// function powerOf(x, n) {
+// let result = 1;
+
+// for (let i =0; i < n; i++) {
+//     result *= x;
+// }
+
+// }
+
+function powerOf(x, n) {
+    if(n === 1) {
+        return x;
+    }
+    return x * powerOf(x, n-1);
+    }
+
+console.log(powerOf(2, 3));
