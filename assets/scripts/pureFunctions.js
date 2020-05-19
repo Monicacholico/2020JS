@@ -18,7 +18,7 @@ previousResult = sum;
 return sum;
 }
 
-console.log(addMoreNumber(1, 5));
+console.log(addMoreNumbers(1, 5));
 
 const hobbies = ['Sports', 'Cooking'];
 function printHobbies(h) {
@@ -71,10 +71,51 @@ greetUser();
 // }
 
 function powerOf(x, n) {
-    if(n === 1) {
-        return x;
-    }
-    return x * powerOf(x, n-1);
+    // if(n === 1) {
+    //     return x;
+    // }
+    // return x * powerOf(x, n-1);
+    return n === 1 ? x : x * powerOf(x, n -1);
     }
 
 console.log(powerOf(2, 3));
+
+const myself = {
+    name: 'Max',
+    friends: [
+        {
+            name: 'Manuel',
+            friends: [
+                {
+                    name: 'Chris',
+                    friends: [
+                         {
+                        name: 'Harry'
+                        },
+                        {
+                        name: 'Amelia'
+                        }
+                    ],
+                },
+
+            ]
+        },
+        {
+            name: 'Julia'
+        }
+    ]
+};
+
+function getPrintFriendNames(person) {
+    const collectedNames = [];
+    if(!person.friends) {
+        return [];
+    }
+    for (const friend of person.friends) {
+        collectedNames.push(friend.name);
+        collectedNames.push(...getPrintFriendNames(friend));
+    }
+    return collectedNames;
+}
+
+console.log(getPrintFriendNames(myself));
