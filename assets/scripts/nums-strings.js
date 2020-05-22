@@ -25,3 +25,9 @@ This product (${prodName}) is ${prodPrice}.
 `;
 
 console.log(productOutput);
+
+const regex = /^\S+@\S+\.\S+$/;
+regex.test('test@test.com');
+
+regex.test(userInput);
+false
