@@ -29,5 +29,24 @@ console.log(productOutput);
 const regex = /^\S+@\S+\.\S+$/;
 regex.test('test@test.com');
 
-regex.test(userInput);
+// regex.test(userInput);
 false
+
+const btn = document.querySelector('button');
+
+// function animate() {
+    let timeCounter = setInterval(timeDisplayer, 3);
+    timer = 0;
+    function timeDisplayer() {
+        document.getElementById('timer').innerText = timer;
+        timer++;
+            if(timer === 125) {
+                clearInterval(timeCounter);
+            }
+    
+        }
+        
+// }
+
+
+// btn.addEventListener('click', animate);
