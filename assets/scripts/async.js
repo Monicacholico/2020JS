@@ -35,28 +35,33 @@ async function trackUserHandler() {
     console.log(error);
   }
   console.log(timerData, posData);
-
-  // .then(postData => {
-  //   positionData = postData;
-  //   return setTimer(2000);
-  // })
-  // .catch(err => {
-  //   console.log(err);
-  //   return 'on we go ...';
-  // })
-  // .then((data) => {
-  //   console.log(data, positionData);
+  // getPosition()
+  //   .then(postData => {
+  //     positionData = postData;
+  //     return setTimer(2000);
+  //   })
+  //   .catch(err => {
+  //     console.log(err);
+  //     return 'on we go ...';
+  //   })
+  //   .then((data) => {
+  //     console.log(data, positionData);
   // });
-  // setTimer(1000).then(() => {
-  //   console.log('Timer done!');
-  // })
-  // console.log('Getting position...');
+  setTimer(1000).then(() => {
+    console.log('Timer done!');
+  })
+  console.log('Getting position...');
 }
 
 button.addEventListener('click', trackUserHandler);
 
-let result = 0;
-for (let i = 0; i < 100000; i++) {
-    result = result += i;
-}
-console.log(result);
+Promise.race([
+  getPosition(),
+  setTimer(1000)])
+  .then( data => {
+    console.log(data);
+  });
+
+Promise.all([getPosition(),setTimer(1000)]).then( promiseData => {
+  console.log(promiseData);
+});
