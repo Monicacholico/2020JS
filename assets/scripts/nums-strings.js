@@ -34,7 +34,7 @@ false
 
 const btn = document.querySelector('button');
 
-// function animate() {
+function animate() {
     let timeCounter = setInterval(timeDisplayer, 3);
     timer = 0;
     function timeDisplayer() {
@@ -46,7 +46,10 @@ const btn = document.querySelector('button');
     
         }
         
-// }
+}
 
 
-// btn.addEventListener('click', animate);
+btn.addEventListener('click', animate);
+
+const button = document.querySelector('button');
+const output = document.querySelector('p');
