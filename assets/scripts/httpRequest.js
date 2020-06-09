@@ -5,44 +5,66 @@ const fetchButton = document.querySelector('#available-posts button');
 const postList = document.querySelector('ul');
 
 function sendHttpReques(method, url, data) {
-    const promise = new Promise( (resolve, reject) => {
+    // const promise = new Promise( (resolve, reject) => {
         
-        const xhr = new XMLHttpRequest();
+        // const xhr = new XMLHttpRequest();
+        // xhr.setRequestHeader('Content-type', 'application/json');
 
-        xhr.open(method, url);
+    //     xhr.open(method, url);
     
-        xhr.responseType = 'json'
+    //     xhr.responseType = 'json'
         
-        xhr.onload = function() {
-            if(xhr.status >= 200 && xhr.status < 300) {
-                resolve(xhr.response);
-            } else {
-                reject(new Error('Something went wrong'))
-            }
-            // const listOfPosts = JSON.parse(xhr.response);
+    //     xhr.onload = function() {
+    //         if(xhr.status >= 200 && xhr.status < 300) {
+    //             resolve(xhr.response);
+    //         } else {
+    //             reject(new Error('Something went wrong'))
+    //         }
+    //         // const listOfPosts = JSON.parse(xhr.response);
  
-        };
+    //     };
 
-        xhr.onerror = function(){
-           reject(new Error('Failed to send request!'));
+    //     xhr.onerror = function(){
+    //        reject(new Error('Failed to send request!'));
 
+    //     }
+
+    //     xhr.send(JSON.stringify(data));
+    // });
+    // return promise;
+    return fetch(url, {
+        method: method,
+        // body: JSON.stringify(data),
+        body: data,
+        // headers: {
+        //     'Content-Type': 'application/json'
+        // }
+    }).then(response => {
+        if (response.status >= 200 && response.status < 300) {
+            return response.json();
+        } else {
+            return response.json().then(errData => {
+                console.log(errData);
+                throw new Error('Something went wrong -server-side');
+            });
         }
-
-        xhr.send(JSON.stringify(data));
+    })
+    .catch(error => {
+        console.log(error);
+        throw new Error('Something went definitely wrong');
     });
-    return promise;
 }
 
 
 async function fetchPost() {
     const responseData = await sendHttpReques(
         'GET', 
-        'https://jsonplaceholder.typicode.com/pos'
+        'https://jsonplaceholder.typicode.com/posts'
         );
         try {
             const listOfPosts = responseData;
             console.log(listOfPosts);
-            for(const post of listOfPosts) {
+            for (const post of listOfPosts) {
                 const postEl = document.importNode(postTemplate.content, true);
                 postEl.querySelector('h2').textContent = post.title.toUpperCase();
                 postEl.querySelector('p').textContent = post.body;
@@ -61,7 +83,14 @@ async function createPost(title, content) {
         body: content,
         userId: userId
     };
-    sendHttpReques('POST','https://jsonplaceholder.typicode.com/posts', post);
+
+    const fd = new FormData(form);
+    // fd.append('title', title);
+    // fd.append('body', content);
+    fd.append('user', userId);
+
+    // sendHttpReques('POST','https://jsonplaceholder.typicode.com/posts', post);
+    sendHttpReques('POST','https://jsonplaceholder.typicode.com/posts', fd);
 
 }
 // fetchPost();
