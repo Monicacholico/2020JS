@@ -58,21 +58,22 @@ function sendHttpReques(method, url, data) {
 
 async function fetchPost() {
     try {
-    const responseData = await sendHttpReques(
-        'GET', 
+    const response = await axios.get(
         'https://jsonplaceholder.typicode.com/posts'
         );
-            const listOfPosts = responseData;
-            console.log(listOfPosts);
-            for (const post of listOfPosts) {
-                const postEl = document.importNode(postTemplate.content, true);
-                postEl.querySelector('h2').textContent = post.title.toUpperCase();
-                postEl.querySelector('p').textContent = post.body;
-                postEl.querySelector('li').id = post.id;
-                listElement.append(postEl);
-            }
+        console.log(response);
+        const listOfPosts = response.data;
+        console.log(listOfPosts);
+        for (const post of listOfPosts) {
+            const postEl = document.importNode(postTemplate.content, true);
+            postEl.querySelector('h2').textContent = post.title.toUpperCase();
+            postEl.querySelector('p').textContent = post.body;
+            postEl.querySelector('li').id = post.id;
+            listElement.append(postEl);
+        }
         } catch(error) {
             alert(error.message);
+            console.log(error.response);
         }
  
         }
@@ -90,8 +91,8 @@ async function createPost(title, content) {
     fd.append('user', userId);
 
     // sendHttpReques('POST','https://jsonplaceholder.typicode.com/posts', post);
-    sendHttpReques('POST','https://jsonplaceholder.typicode.com/posts', fd);
-
+    const response = await axios.post('https://jsonplaceholder.typicode.com/posts', post);
+    console.log(response);
 }
 // fetchPost();
 fetchButton.addEventListener('click', fetchPost);
@@ -105,7 +106,7 @@ form.addEventListener('submit', event => {
 postList.addEventListener('click', event => {
     if (event.target.tagName === 'BUTTON') {
         const postId = event.target.closest('li').id;
-        sendHttpReques('DELETE',`https://jsonplaceholder.typicode.com/posts/${postId}`);
+        axios.delete(`https://jsonplaceholder.typicode.com/posts/${postId}`);
     }
 })
 
