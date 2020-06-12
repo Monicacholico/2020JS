@@ -1,4 +1,3 @@
-import { win32 } from "path";
 
 const button = document.querySelector('button');
 
