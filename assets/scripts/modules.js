@@ -222,7 +222,7 @@ class App {
 
         static startAnalytics() {
             const analyticsScript = document.createElement('script');
-            analyticsScript.src = 'scripts/analytics.js';
+            analyticsScript.src = 'scripts/utility/analytics.js';
             analyticsScript.defer = true;
             document.head.append(analyticsScript);
     }
