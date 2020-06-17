@@ -1,11 +1,18 @@
-class ProjectList {
+import { ProjectItem as PrjItem } from './projectItem.js';// you can use an alias see
+import { ProjectItem } from './projectItem.js';
+// import { moveElement } from '../utility/DOMHelper.js'
+// import { DOMHelper, moveElement } from '../utility/DOMHelper.js'
+import * as DOM from '../utility/DOMHelper.js'
+
+export class ProjectList {
     projects = [];
 
     constructor(type){
         this.type = type;
         const prjItems = document.querySelectorAll(`#${type}-projects li`)
         for(const prjItem of prjItems){
-            this.projects.push(new ProjectItem(prjItem.id, this.switchProject.bind(this), this.type))
+            // this.projects.push(new ProjectItem(prjItem.id, this.switchProject.bind(this), this.type)) 
+            this.projects.push(new PrjItem(prjItem.id, this.switchProject.bind(this), this.type)) // using the alias
         }
         console.log(this.projects)
         this.connectDroppable();
@@ -49,7 +56,7 @@ class ProjectList {
     addProject(project) {
         console.log(project);
         this.projects.push(project)
-        DOMHelper.moveElement(project.id, `#${this.type}-projects ul`);
+        DOM.moveElement(project.id, `#${this.type}-projects ul`);
         project.update(this.switchProject.bind(this), this.type);
     }
 

@@ -194,6 +194,7 @@
 //         this.projects = this.projects.filter(p => p.id !== projectId);
 //     }
 // }
+import { ProjectList } from './app/projectList.js'
 
 class App {
     static init() {

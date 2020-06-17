@@ -1,4 +1,4 @@
-class DOMHelper {
+export class DOMHelper {
     static clearEventListeners(element){
         const cloneElement = element.cloneNode(true);
         element.replaceWith(cloneElement);
@@ -10,4 +10,15 @@ class DOMHelper {
         destinationElement.append(element);
         element.scrollIntoView({behavior: 'smooth'});
     }
+}
+export function clearEventListeners(element){
+    const cloneElement = element.cloneNode(true);
+    element.replaceWith(cloneElement);
+    return cloneElement;
+}
+export function moveElement(elementId, newDestinationSelector) {
+    const element = document.getElementById(elementId);
+    const destinationElement = document.querySelector(newDestinationSelector);
+    destinationElement.append(element);
+    element.scrollIntoView({behavior: 'smooth'});
 }
