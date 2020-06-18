@@ -1,5 +1,6 @@
 import { DOMHelper } from '../utility/DOMHelper.js'
-import { Tooltip} from './tooltip.js'
+// import { Tooltip} from './tooltip.js'// see example to import 
+// just when needed
 
 export class ProjectItem {
     hasActiveTooltip = false;
@@ -18,6 +19,14 @@ export class ProjectItem {
         }
         const projectElement = document.getElementById(this.id);
         const tooltipText = projectElement.dataset.extraInfo;
+        // import('./tooltip.js').then( module => { // example how to import when you just needed
+        //     const tooltip = new module.Tooltip(() => {
+        //         this.hasActiveTooltip = false;
+        //     }, tooltipText, 
+        //     this.id);
+        //     tooltip.show();
+        //     this.hasActiveTooltip = true;
+        // })
         const tooltip = new Tooltip(() => {
             this.hasActiveTooltip = false;
         }, tooltipText, 
