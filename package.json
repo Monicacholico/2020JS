@@ -1,0 +1,22 @@
+{
+  "name": "getting-started-01-first-app",
+  "version": "1.0.0",
+  "description": "Javascript - The Complete Guide",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Monicacholico/2020JS.git"
+  },
+  "author": "Monica",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Monicacholico/2020JS/issues"
+  },
+  "homepage": "https://github.com/Monicacholico/2020JS#readme",
+  "devDependencies": {
+    "eslint": "^7.2.0"
+  }
+}
