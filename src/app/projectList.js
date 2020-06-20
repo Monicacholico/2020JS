@@ -1,8 +1,8 @@
 import { ProjectItem as PrjItem } from './projectItem.js';// you can use an alias see
-import { ProjectItem } from './projectItem.js';
+// import { ProjectItem } from './projectItem.js';
 // import { moveElement } from '../utility/DOMHelper.js'
 // import { DOMHelper, moveElement } from '../utility/DOMHelper.js'
-import * as DOM from '../utility/DOMHelper.js'
+import * as DOM from '../utility/DOMHelper.js';
 
 export class ProjectList {
     // projects = [];
@@ -15,7 +15,7 @@ export class ProjectList {
             // this.projects.push(new ProjectItem(prjItem.id, this.switchProject.bind(this), this.type)) 
             this.projects.push(new PrjItem(prjItem.id, this.switchProject.bind(this), this.type)) // using the alias
         }
-        console.log(this.projects)
+        console.log(this.projects);
         this.connectDroppable();
     }
 
@@ -26,7 +26,7 @@ export class ProjectList {
                 list.parentElement.classList.add('droppable');
                 event.preventDefault();
             }
-        })
+        });
         list.addEventListener('dragover', event => {
             if(event.dataTransfer.types[0] === 'text/plain'){
             event.preventDefault();
@@ -47,7 +47,7 @@ export class ProjectList {
             .click();
             list.parentElement.classList.remove('droppable');
             // event.preventDefault();
-        })
+        });
     }
 
     setSwitchHandlerFunction(switchHandlerFunction){

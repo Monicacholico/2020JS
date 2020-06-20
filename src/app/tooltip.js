@@ -5,11 +5,11 @@ export class Tooltip extends Component {
         super(hostElementId);
         this.closeNotifier = closeNotifierFunction;
         this.text = text;
+        this.closeTooltip = () => {
+            this.detach();
+            this.closeNotifier();
+        };
         this.create();
-    }
-    closeTooltip = () => {
-        this.detach();
-        this.closeNotifier();
     }
 
     create(){
