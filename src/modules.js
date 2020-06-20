@@ -194,7 +194,9 @@
 //         this.projects = this.projects.filter(p => p.id !== projectId);
 //     }
 // }
-import { ProjectList } from './app/projectList.js'
+import { ProjectList } from '../../src/app/projectList.js.js'
+
+globalThis.DEFAULT_VALUE = 'MAX';
 
 class App {
     static init() {
@@ -222,7 +224,7 @@ class App {
 
 
         static startAnalytics() {
-            const analyticsScript = document.createElement('script');
+            const analyticsScript = document.createElement('script');            
             analyticsScript.src = 'scripts/utility/analytics.js';
             analyticsScript.defer = true;
             document.head.append(analyticsScript);
