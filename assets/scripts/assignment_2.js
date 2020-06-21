@@ -1,7 +1,7 @@
 const task3Element = document.getElementById('task-3');
 
 function greeting(){
-    alert('Hello World')
+    alert('Hello World');
 }
 greeting();
 
