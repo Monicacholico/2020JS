@@ -100,12 +100,12 @@ form.addEventListener('submit', event => {
     const enteredTitle = event.currentTarget.querySelector('#title').value;
     const enteredContent = event.currentTarget.querySelector('#content').value;
     createPost(enteredTitle, enteredContent);
-})
+});
 
 postList.addEventListener('click', event => {
     if (event.target.tagName === 'BUTTON') {
         const postId = event.target.closest('li').id;
         sendHttpReques('DELETE',`https://jsonplaceholder.typicode.com/posts/${postId}`);
     }
-})
+});
 
