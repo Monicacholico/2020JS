@@ -17,4 +17,5 @@ retrBtn.addEventListener('click', () => {
         return i.trim();
     });
     console.log(data[1].split('=')[1]); //user value
+    // console.log(data.includes('').split('=')[1]); //user value
 });
