@@ -8,7 +8,6 @@ const dbRequest = indexedDB.open('StorageDummy', 1);
 
 dbRequest.onsuccess = function(event) {
     db = event.target.result;
-
 };
 
 
@@ -42,7 +41,7 @@ storeBtn.addEventListener('click', () => {
     .transaction('products', 'readwrite')
     .objectStore('products');
     productsStore.add({
-        id: 'p1',
+        id: 'p2',
         title: 'A Second Product',
         price: 15.99, 
         tags: ['Expensive','Luxury']
@@ -50,6 +49,11 @@ storeBtn.addEventListener('click', () => {
 });
 
 retrBtn.addEventListener('click', () => {
-    
-    
+    const productsStore = db
+    .transaction('products', 'readwrite')
+    .objectStore('products');
+    const request = productsStore.get('p2');
+    request.onsuccess = function() {
+        console.log(request.result);
+    };
 });
