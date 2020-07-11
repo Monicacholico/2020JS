@@ -15,7 +15,7 @@ class PlaceFinder {
             alert('Location feature not available in you browser - please use a more modern browser');
             return;
         }
-        const modal = new Modal ('loading-modal-conent', 'Loading location - please wait');
+        const modal = new Modal ('loading-modal-content', 'Loading location - please wait');
         modal.show();
         navigator.geolocation.getCurrentPosition(
             successResult => {

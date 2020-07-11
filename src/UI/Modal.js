@@ -2,6 +2,7 @@ export class Modal {
     constructor(contentId, fallbackText){
         this.fallbackText = fallbackText;
         this.contentTemplateEl = document.getElementById(contentId);
+        console.log(this.contentTemplateEl);
         this.modalTemplateEl = document.getElementById('modal-template');
     }
 
