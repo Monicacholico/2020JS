@@ -1,4 +1,5 @@
 import { Modal } from './UI/Modal';
+import { Map } from './UI/Map';
 
 class PlaceFinder {
     constructor() {
@@ -8,6 +9,14 @@ class PlaceFinder {
         locateUserBtn.addEventListener('click', this.locateUserHandler);
         addressForm.addEventListener('submit', this.findAddressHandler);
 
+    }
+
+    selectPlace(coordinates){
+        if(this.map) {
+            this.map.render(coordinates);
+        } else {
+            this.map = new Map(coordinates);
+        }
     }
 
     locateUserHandler() {
