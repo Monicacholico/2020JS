@@ -5,6 +5,9 @@ export class Modal {
         console.log(this.contentTemplateEl);
         this.modalTemplateEl = document.getElementById('modal-template');
     }
+    greetin(){
+        console.log('this is working');
+    }
 
     show(){
         if('content' in document.createElement('template')) {
