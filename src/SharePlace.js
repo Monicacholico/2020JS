@@ -48,11 +48,11 @@ class PlaceFinder {
         }).then(response => {
             return response.json();
         }).then( data => {
-            console.log(data);
-        });
-        this.shareBtn.disabled = false;
-        const shareLinkInputElement = document.getElementById('share-link');
-        shareLinkInputElement.value = `${location.origin}/my-place?address=${encodeURI(address)}&lat=${coordinates.lat}&lng=${coordinates.lng}`;
+            const locationId = data.locId;
+            this.shareBtn.disabled = false;
+            const shareLinkInputElement = document.getElementById('share-link');
+            shareLinkInputElement.value = `${location.origin}/my-place?location=${locationId}`;        });
+
     }
 
      locateUserHandler() {
