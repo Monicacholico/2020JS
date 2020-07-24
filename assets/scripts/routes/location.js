@@ -7,11 +7,13 @@ const locationStorage = {
 };
 
 router.post('/add-location', (req, res, next) => {
-    locationStorage.locations.push({id: Math.random(), 
+    const id = Math.random();
+    locationStorage.locations.push({
+        id: id, 
         address: req.body.address, 
         coords: {lat: req.body.lat, lng: req.body.lng}
     });
-    res.json({message: 'Store location!'});
+    res.json({message: 'Store location!', locId: id});
 });
 
 router.get('/location', (req, res, next) => {});
