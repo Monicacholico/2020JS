@@ -1,5 +1,5 @@
 import { Map } from './UI/Map';
-import { response } from 'express';
+// import { response } from 'express';
 
 class LoadedPlace {
     constructor(coordinates, address) {
