@@ -2,8 +2,6 @@ const express = require('express');
 const mongodb = require('mongodb');
 const MongoClient = mongodb.MongoClient;
 
-
-
 const router = express.Router();
 
 const url = 'mongodb+srv://monica:LTPndweuiVhNdSMi@cluster2020js.8dsce.mongodb.net/locations?retryWrites=true&w=majority';

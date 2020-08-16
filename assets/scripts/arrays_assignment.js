@@ -12,7 +12,7 @@ const myNewObj = {cost: number};
 
 return myNewObj;   
 // console.log('This is your new Object', myNewObj);
-})
+});
 console.log("mynumbersObject looks like: " , myNumbersObject);
 // console.log(numbersObject);
 
