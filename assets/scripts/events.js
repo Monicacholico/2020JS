@@ -7,7 +7,7 @@ const button = document.querySelector('button');
 const buttonClickHandler = (e) => {
 // e.target.disabled = true
 console.log(e.target);
-} 
+}; 
 
 const anotherButtonClicked = () => {
     console.log('This was clicked');
