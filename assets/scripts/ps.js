@@ -6,7 +6,7 @@ function tabHandler(e){
     tab.className = tab.className.replace('active', '');
   });
   e.target.parentElement.className += ' active';
-  let element = document.getElementById(event.target.href.split("#")[1]);
+  let element = document.getElementById(event.target.href.split('#')[1]);
   element.className += ' active';
 }
 
@@ -19,91 +19,91 @@ ultabs.addEventListener('click', tabHandler, false);
 
 let pointeShoes = [
   {
-    name: " Alpha",
-    brand: " Bloch",
-    feetType: "Egyptian",
-    level: "Advanced",
-    strength: "Strong",
-    toesLength: "Long",
-    arcProfile: "High",
-    width: "Narrow",
+    name: ' Alpha',
+    brand: ' Bloch',
+    feetType: 'Egyptian',
+    level: 'Advanced',
+    strength: 'Strong',
+    toesLength: 'Long',
+    arcProfile: 'High',
+    width: 'Narrow',
     id: 6
   },
   {
-    name: " Elite",
-    brand: " Grishko",
-    feetType: "Giselle",
-    level: "Intermediate",
-    strength: "Medium",
-    toesLength: "Short",
-    arcProfile: "Low",
-    width: "Wide",
+    name: ' Elite',
+    brand: ' Grishko',
+    feetType: 'Giselle',
+    level: 'Intermediate',
+    strength: 'Medium',
+    toesLength: 'Short',
+    arcProfile: 'Low',
+    width: 'Wide',
     id: 7
   },
   {
-    name: " Balance",
-    brand: " Bloch",
-    feetType: "Giselle",
-    level: "Beginner",
-    strength: "Low",
-    toesLength: "Short",
-    arcProfile: "Low",
-    width: "Wide",
+    name: ' Balance',
+    brand: ' Bloch',
+    feetType: 'Giselle',
+    level: 'Beginner',
+    strength: 'Low',
+    toesLength: 'Short',
+    arcProfile: 'Low',
+    width: 'Wide',
     id: 8
   },
   {
-    name: " Balance",
-    brand: " Bloch",
-    feetType: "Giselle",
-    level: "Beginner",
-    strength: "Low",
-    toesLength: "Short",
-    arcProfile: "Low",
-    width: "Wide",
+    name: ' Balance',
+    brand: ' Bloch',
+    feetType: 'Giselle',
+    level: 'Beginner',
+    strength: 'Low',
+    toesLength: 'Short',
+    arcProfile: 'Low',
+    width: 'Wide',
     id: 9
   },
   {
-    name: " Balance",
-    brand: " Bloch",
-    feetType: "Giselle",
-    level: "Beginner",
-    strength: "Low",
-    toesLength: "Short",
-    arcProfile: "Low",
-    width: "Wide",
+    name: ' Balance',
+    brand: ' Bloch',
+    feetType: 'Giselle',
+    level: 'Beginner',
+    strength: 'Low',
+    toesLength: 'Short',
+    arcProfile: 'Low',
+    width: 'Wide',
     id: 10
   },
   {
-    name: " Balance",
-    brand: " Bloch",
-    feetType: "Giselle",
-    level: "Beginner",
-    strength: "Low",
-    toesLength: "Short",
-    arcProfile: "Low",
-    width: "Wide",
+    name: ' Balance',
+    brand: ' Bloch',
+    feetType: 'Giselle',
+    level: 'Beginner',
+    strength: 'Low',
+    toesLength: 'Short',
+    arcProfile: 'Low',
+    width: 'Wide',
     id: 11
   },
   {
-    name: " Balance",
-    brand: " Bloch",
-    feetType: "Giselle",
-    level: "Beginner",
-    strength: "Low",
-    toesLength: "Short",
-    arcProfile: "Low",
-    width: "Wide",
+    name: ' Balance',
+    brand: ' Bloch',
+    feetType: 'Giselle',
+    level: 'Beginner',
+    strength: 'Low',
+    toesLength: 'Short',
+    arcProfile: 'Low',
+    width: 'Wide',
     id: 12
   },
   {
-    name: " Balance",
-    brand: " Bloch",
-    feetType: "Giselle",
-    level: "Beginner",
-    strength: "Low",
-    toesLength: "Short",
-    arcProfile: "Low",
-    width: "Wide",
+    name: ' Balance',
+    brand: ' Bloch',
+    feetType: 'Giselle',
+    level: 'Beginner',
+    strength: 'Low',
+    toesLength: 'Short',
+    arcProfile: 'Low',
+    width: 'Wide',
     id: 14
   }
 ];
@@ -113,7 +113,7 @@ let i = 0;
 function displaying() {
     // let title = "";
     // for (const pointeShoe of pointeShoes) {
-      console.log(`Characteristics of `);
+      console.log('Characteristics of ');
       // for (const characteristic in pointeShoe) {
         // console.log(characteristic);
         // console.log(`${characteristic} : ${pointeShoe[characteristic]}`);
@@ -124,13 +124,13 @@ function displaying() {
         console.log(psName);
         console.log(pointeShoe);
         let psTitle = document.getElementById('pointeName');
-        psTitle.innerText = `The Pointe Shoe ${pointeShoe.name}`
+        psTitle.innerText = `The Pointe Shoe ${pointeShoe.name}`;
         let node = document.createElement('li');
-        let textNode = document.createTextNode(`${pointeShoe.key} : ${pointeShoe.name} has: `)
+        let textNode = document.createTextNode(`${pointeShoe.key} : ${pointeShoe.name} has: `);
         // console.log(index);
         // console.log(array);
 
-      })
+      });
     // }
   }
   function rendering(){
@@ -146,9 +146,9 @@ function displaying() {
                 <li>Toes Length: ${pointeShoe.toesLength}</li>
                 <li>Arc Profile: ${pointeShoe.arcProfile}</li>
                 <li>Width: ${pointeShoe.width}</li>
-              </div`
-    })
-    return html
+              </div`;
+    });
+    return html;
     // presenter.appendChild(html);
   }
   
